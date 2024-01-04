@@ -1,7 +1,9 @@
 package br.com.estudo.stream.reduce;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class StreamReduce {
 
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
         List<String> words = Arrays.asList("Hello!", " My", " name", " is", " Alison");
+        List<Integer> age = new ArrayList<>();
 
         int result1 = numbers
                 .stream()
@@ -48,5 +51,34 @@ public class StreamReduce {
         System.out.println("########## (String) reduce with lambda ###########");
         System.out.println(result4);
 
+        Person person1 = new Person();
+        person1.setName("Alison");
+        person1.setAge(22);
+
+        Person person2 = new Person();
+        person2.setName("Vithor");
+        person2.setAge(14);
+
+        Person person3 = new Person();
+        person3.setName("Enzo");
+        person3.setAge(9);
+
+        Person person4 = new Person();
+        person4.setName("Maria");
+        person4.setAge(20);
+
+        age.add(person1.getAge());
+        age.add(person2.getAge());
+        age.add(person3.getAge());
+        age.add(person4.getAge());
+
+        double sumAge = age
+                .stream()
+                        .reduce(0, (Integer::sum));
+
+        double avg = sumAge / age.size();
+
+        System.out.println("######### average using reduce ##########");
+        System.out.println(avg);
     }
 }
