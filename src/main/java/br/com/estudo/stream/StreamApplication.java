@@ -1,5 +1,6 @@
 package br.com.estudo.stream;
 
+import br.com.estudo.stream.reduce.StreamReduce;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;

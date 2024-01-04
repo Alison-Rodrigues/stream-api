@@ -1,4 +1,4 @@
-package br.com.estudo.stream;
+package br.com.estudo.stream.reduce;
 
 import org.springframework.stereotype.Component;
 
