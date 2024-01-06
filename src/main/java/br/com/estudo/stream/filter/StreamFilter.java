@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 @Component
 public class StreamFilter {
 
+    //stream.filter() serve para filtrar elementos de um Array
+
     private List<String> names = Arrays.asList("Alison Rodrigues", "Enzo Rodrigues", "Vithor Rodrigues", "Paulo Rodrigues", "Tatiane Rodrigues",
             "Maria Heloisa Trevizzo", "Maria Julia Trevizzo", "Luiz Henrique Trevizzo", "Milza Trevizzo");
 
@@ -17,26 +19,31 @@ public class StreamFilter {
 
     public void executeFilter() {
 
+        //elementos que contém a string "Rodrigues"
         List<String> resultRodrigues = names
                 .stream()
                 .filter(s -> s.contains("Rodrigues"))
                 .collect(Collectors.toList());
 
+        //elementos que contém a string "Trevizzo"
         List<String> resultTrevizzo = names
                 .stream()
                 .filter(s -> s.contains("Trevizzo"))
                 .collect(Collectors.toList());
 
+        //elementos que não começam com "000"
         List<String> without000 = campaigns
                 .stream()
                 .filter(s -> !s.startsWith("000"))
                 .collect(Collectors.toList());
 
+        //elementos que começam com "000"
         List<String> with000 = campaigns
                 .stream()
                 .filter(s -> s.startsWith("000"))
                 .collect(Collectors.toList());
 
+        //elementos que não começam com "000" e contém a string "CID0001"
         List<String> without000ContainsCID0001 = campaigns
                 .stream()
                 .filter(s -> !s.startsWith("000") && s.contains("CID0001"))
